@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: inventory-management-2025
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn Inventory_Management_System_2025.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Inventory_Management_System_2025.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: SECRET_KEY
+        sync: false
+      - key: ALLOWED_HOSTS
+        value: "*"
